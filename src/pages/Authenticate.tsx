@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import {useContext} from "react";
 import { AuthContext } from '../context/auth.context';
 
 const Authenticate = () => {
@@ -11,7 +11,7 @@ const Authenticate = () => {
             username: 'MiniCodeLab-1',
             emoji: 'flamenca',
             email: 'minicodelab+1@minicodelab.com',
-            password: '1234',
+            password: '1234'
         });
     };
 
@@ -22,7 +22,7 @@ const Authenticate = () => {
         <h1>Authenticate</h1>
 
         <button onClick={handleRegister}>Regístrate</button>
-        </div>
+    </div>
   )
 }
 

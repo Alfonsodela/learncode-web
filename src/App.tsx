@@ -1,10 +1,9 @@
-import styled from "@emotion/styled";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import ProtectedRoute, { AuthContextProvider } from "./context/auth.context";
-import Authenticate from "./pages/Authenticate";
-import { Layout } from "./ui/Layout";
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import ProtectedRoute, { AuthContextProvider } from './context/auth.context'
+import Authenticate from './pages/Authenticate'
+import { Layout } from './ui/Layout'
 
-function App() {
+function App () {
   return (
     <div className="App">
       <Layout>

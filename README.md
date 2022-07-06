@@ -22,10 +22,23 @@
 
 ----
 
-- [] Config de Prettier
-- [] Config de Eslint
-- [] Config de Husky
-- [] Config de Jest
+- [x] Config de Prettier
+- [-] Config de Eslint
+  - npx eslint --init
+  - npm install --save-dev prettier eslint-config-prettier eslint-plugin-prettier
+- [-] Config de Jest
+  - npm i --dev jest @testing-library/react
+  - npm i --save-dev @types/jest
+  - npm i -D ts-jest 
+- [-] Config de Husky
+  - npm i -D husky lint-staged
+      "lint-staged": {
+        "*{js,jsx,ts,tsx}": [
+          "prettier --write",
+          "eslint --quiet --fix",
+          "jest --passWithNoTests"
+        ]
+      }
 
 - []Reafactor de l registro
  - [] Crear hook de autenticación
