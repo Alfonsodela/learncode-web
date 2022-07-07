@@ -1,16 +1,8 @@
-import axios from "axios";
-import { createContext, useState } from "react";
+import { createContext, ReactNode, useState } from "react";
 import ProtectedRoute from "../components/ProtectedRoute";
+import { register, RegisterParams } from '../api/auth.api';
 
-export type LoginParams = {
-  email: string;
-  password: string;
-}
 
-export type RegisterParams = {
-    username: string;
-    emoji: string;
-} & LoginParams;
 
 export type AuthContextState = {
   authenticated: boolean;
@@ -18,7 +10,7 @@ export type AuthContextState = {
 };
 
 export type AuthContextType = {
-  register: (params: RegisterParams) => Promise<void> 
+  register: (params: RegisterParams) => Promise<unknown> 
 } & AuthContextState;
 
 const initialState = {
@@ -34,28 +26,16 @@ export const AuthContext = createContext<AuthContextType>({
 export const AuthContextProvider = ({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) => {
-  const [auth, setAuth] = useState<AuthContextState>(initialState);
+  const [auth] = useState<AuthContextState>(initialState);
 
-  // TODO: Auth logic..
-  // Move all logic functions to a service
-  // Move all auth logic to a custom hook 
-  const register = async (params: RegisterParams) => {
-     axios.post(`${import.meta.env.VITE_API_BASE_URL}user`, params)
-        .then((data) => {
-            console.log(data);
-        })
-        .catch((error) => {
-            console.error(error)
-        });
-  };
 
   return (
   <AuthContext.Provider 
     value={{
       ...auth,
-      register,
+      register
     }}
     >
       {children}

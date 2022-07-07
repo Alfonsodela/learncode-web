@@ -22,6 +22,7 @@
 
 ----
 
+
 - [x] Config de Prettier
 - [-] Config de Eslint
   - npx eslint --init
@@ -32,13 +33,9 @@
   - npm i -D ts-jest 
 - [-] Config de Husky
   - npm i -D husky lint-staged
-      "lint-staged": {
-        "*{js,jsx,ts,tsx}": [
-          "prettier --write",
-          "eslint --quiet --fix",
-          "jest --passWithNoTests"
-        ]
-      }
+
+----
+
 
 - []Reafactor de l registro
  - [] Crear hook de autenticación
