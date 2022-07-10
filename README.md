@@ -9,16 +9,15 @@
         - npm install @emocion/react
         - npm i @emotion/styled
         - Añadir conf en el plugin de react
----
 
-- [x] Crear design system sobre Emottion
+- [x] Crear design system sobre Emotion
         - Crear variables globales de CSS
         - Importar las fonts del proyecto Roboto (regular & bold)
-- [x] Crear sistema de routin con react-router-dom
+- [x] Crear sistema de routing con react-router-dom
 - [x] Crear componente ruta protegida
-- [] Autentiarnos con la API
-        - [x] Registrarse
-        - [] Logarse
+- [x] Crear Context
+- [] Autenticarnos con la API
+        - [x] Registro
 
 ----
 
@@ -34,14 +33,15 @@
 - [-] Config de Husky
   - npm i -D husky lint-staged
 
-----
-
-
-- []Reafactor de l registro
- - [] Crear hook de autenticación
- - [] Crear servicio API
- - [] Guardar datos del user en Context
+- [] Refactor de l registro
+ - [x] Crear servicio API (1.32)
+ - [x] Crear types
+ - [x] Guardar datos del user en Context (1.47)
+ - [-] Guardar token en localstorage (1.58)
+ - [] Crear función getUserInfo que traiga la información del user logado 
+ - [-] Crear hook de autenticación
 
 - [] Añadir forms y pantalla de Registro y login
  - [] Registro
  - [] Login
+ - [] Añadir ruta / codes protegida

@@ -65,3 +65,8 @@ export type ErrorPayload = {
     message: string;
     status: HTTPStatusCodes;
 }
+
+export type ResponsePayload<T extends {}> = {
+    status: HTTPStatusCodes;
+    data: T;
+}

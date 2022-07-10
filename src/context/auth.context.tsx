@@ -1,41 +1,74 @@
 import { createContext, ReactNode, useState } from "react";
 import ProtectedRoute from "../components/ProtectedRoute";
-import { register, RegisterParams } from '../api/auth.api';
+import { register, RegisterParams, login, LoginParams } from '../api/auth.api';
+import { User, UserData } from "types/user.types";
+import { HTTPStatusCodes, ResponsePayload } from "../types/request.type";
+import { getTokenFromLocalStorage, setTokenToLocalStorage } from "utils/common";
 
 
 
-export type AuthContextState = {
+export type AuthContextState = UserData & {
   authenticated: boolean;
-  user: null;
 };
 
-export type AuthContextType = {
+export type AuthContextType = {  
   register: (params: RegisterParams) => Promise<unknown> 
+  login: (params: LoginParams) => Promise<unknown> 
 } & AuthContextState;
 
 const initialState = {
   authenticated: false,
+  token: null,
   user: null,
 };
 
 export const AuthContext = createContext<AuthContextType>({
    ...initialState, 
    register: async () => {},
+   login: async () => {},
 });
 
-export const AuthContextProvider = ({
-  children,
-}: {
-  children: ReactNode;
-}) => {
-  const [auth] = useState<AuthContextState>(initialState);
+export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
+  const [auth, setAuth] = useState<AuthContextState>(() => {
+    const storedToken = getTokenFromLocalStorage();
+    return { ...initialState, token: storedToken };
+  });
+
+  const handleRegister = async (params: RegisterParams) => {
+    const result = await register(params);
+
+    if (result.status === HTTPStatusCodes.CREATED) {
+      setAuth((prevAuth) => ({
+        ...prevAuth,
+        user: (result as ResponsePayload<User>).data 
+      }))
+    }
+  };
+
+  const handleLogin = async (params: LoginParams) => {
+    const result = await login(params);
+
+    if (result.status === HTTPStatusCodes.OK ) {
+      const { user, token } = (result as ResponsePayload<UserData>).data;
+
+      setTokenToLocalStorage(token as string); 
+
+      setAuth((prevAuth) => ({
+        ...prevAuth,
+        user,
+        token
+      }))
+    }
+  };
+
 
 
   return (
   <AuthContext.Provider 
     value={{
       ...auth,
-      register
+      login: handleLogin,
+      register: handleRegister 
     }}
     >
       {children}

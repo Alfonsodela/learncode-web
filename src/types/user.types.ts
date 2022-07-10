@@ -6,3 +6,8 @@ export type User = {
     codes?: string[];
     favCodes?: string[];
 }
+
+export type UserData = {
+    token: string | null;
+    user: User | null;
+}
