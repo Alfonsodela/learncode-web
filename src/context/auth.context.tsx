@@ -1,9 +1,9 @@
 import { createContext, ReactNode, useState } from "react";
 import ProtectedRoute from "../components/ProtectedRoute";
 import { register, RegisterParams, login, LoginParams } from '../api/auth.api';
-import { User, UserData } from "types/user.types";
+import { User, UserData } from "../types/user.types";
 import { HTTPStatusCodes, ResponsePayload } from "../types/request.type";
-import { getTokenFromLocalStorage, setTokenToLocalStorage } from "utils/common";
+import { getTokenFromLocalStorage, setTokenToLocalStorage } from "../utils/common";
 
 
 

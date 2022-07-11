@@ -1,6 +1,7 @@
 // import { register } from "../api/auth.api";
 import {useContext} from "react";
 import { AuthContext } from '../context/auth.context';
+import { Button } from "../ui/Button";
 
 const Authenticate = () => {
 
@@ -23,7 +24,10 @@ const Authenticate = () => {
     <div>
         <h1>Authenticate</h1>
 
-        <button onClick={handleRegister}>Regístrate</button>
+        <Button onClick={handleRegister}>Regístrate</Button>
+        <Button variant='green' onClick={handleRegister}>Regístrate</Button>
+        <Button variant='purple' onClick={handleRegister}>Regístrate</Button>
+        <Button variant='purple' disabled onClick={handleRegister}>Regístrate</Button>
     </div>
   )
 }

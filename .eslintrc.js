@@ -23,5 +23,12 @@ module.exports = {
     '@typescript-eslint'
   ],
   rules: {
+    'no-unsed-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }]
+  },
+  settings: {
+    react: {
+      version: 'detect'
+    }
   }
-}
+};

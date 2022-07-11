@@ -37,9 +37,13 @@
  - [x] Crear servicio API (1.32)
  - [x] Crear types
  - [x] Guardar datos del user en Context (1.47)
- - [-] Guardar token en localstorage (1.58)
+ - [x] Guardar token en localstorage (1.58)
  - [] Crear función getUserInfo que traiga la información del user logado 
  - [-] Crear hook de autenticación
+
+- [] Crear componente para el formulario
+ - [] Input
+ - [] Botón
 
 - [] Añadir forms y pantalla de Registro y login
  - [] Registro
