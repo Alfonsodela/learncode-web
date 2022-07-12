@@ -1,6 +1,7 @@
 import { Button } from '../ui/Button'
 import { Input } from '../ui/form/Input';
-import { Error } from '../ui/Error'
+import { Error } from '../ui/Error';
+import  Image  from '../components/Image'
 
 const StyleGuide = () => {
   return (
@@ -28,8 +29,13 @@ const StyleGuide = () => {
       <Error>Vuelve a probar suerte</Error>
       <Error size='l'>Vuelve a probar suerte</Error>
       <Error size='xl'>Vuelve a probar suerte</Error>
-      
-      
+      </div>
+
+      <div>
+      <h2>Image</h2>
+
+      <Image size='s' src="/logo-instacode-xl.png" alt="Instacode Logo"/>
+      <Image src="/logo-instacode.png" alt="Instacode Logo"/>
       </div>
 
     </div>

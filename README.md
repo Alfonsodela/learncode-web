@@ -41,11 +41,16 @@
  - [] Crear función getUserInfo que traiga la información del user logado 
  - [-] Crear hook de autenticación
 
-- [] Crear componente para el formulario
- - [] Input
- - [] Botón
+ -----
+
+ 
+- [] Crear componente (StyleGuide) para el formulario
+  - [x] Button
+  - [x] Input
+  - [x] Error
+  - [x] Image
 
 - [] Añadir forms y pantalla de Registro y login
- - [] Registro
+ - [x] Registro
  - [] Login
  - [] Añadir ruta / codes protegida
