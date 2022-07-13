@@ -50,7 +50,7 @@
   - [x] Error
   - [x] Image
 
-- [] Añadir forms y pantalla de Registro y login
+- [] Añadir forms y pantalla de Registro y login (0.57)
  - [x] Registro
  - [] Login
  - [] Añadir ruta / codes protegida

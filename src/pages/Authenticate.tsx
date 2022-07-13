@@ -1,17 +1,17 @@
 // import { register } from "../api/auth.api";
 import {useContext} from "react";
+import LoginForm from "../components/LoginForm";
 import { AuthContext } from '../context/auth.context';
-import { Button } from "../ui/Button";
+
+
 
 const Authenticate = () => {
 
-    const { user, token, register } = useContext(AuthContext);
+    const { user, token, login } = useContext(AuthContext);
 
     const handleRegister = () => {
 
-        register({
-            username: 'alfonso',
-            emoji: 'hi',
+        login({
             email: 'minicodelab+1@minicodelab.com',
             password: '1234'
         });
@@ -23,11 +23,9 @@ const Authenticate = () => {
   return (
     <div>
         <h1>Authenticate</h1>
+        <LoginForm onSubmit={() => null }></LoginForm>
 
-        <Button onClick={handleRegister}>Regístrate</Button>
-        <Button variant='green' onClick={handleRegister}>Regístrate</Button>
-        <Button variant='purple' onClick={handleRegister}>Regístrate</Button>
-        <Button variant='purple' disabled onClick={handleRegister}>Regístrate</Button>
+        
     </div>
   )
 }

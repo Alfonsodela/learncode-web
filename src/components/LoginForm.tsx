@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form'
 import { Button } from '../ui/Button';
+import { Form, Label } from '../ui/form/Form';
 import { Input } from '../ui/form/Input';
 import { passwordRegex } from '../utils/validations';
 
@@ -16,28 +17,37 @@ const LoginForm = ({ onSubmit }: Props) => {
     })
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-        <label>
-            <Input type="email" {...register('email', {
+    <Form onSubmit={handleSubmit(onSubmit)}>
+        <Label>
+            <Input 
+                type="email" 
+                placeholder="Nombre de usuario o email"
+                {...register('email', {
                 required: true
             })} 
             /> 
-        </label>
+        </Label>
 
-        <label>
-            <Input type="password" {...register('password', {
+        <Label>
+            <Input 
+                type="password" 
+                placeholder="Contraseña"
+                {...register('password', {
                 required: true,
-                minLength: 8, 
+                minLength: {
+                    value: 8,
+                    message: 'La contraseña debe tener al menos 8 caracteres'
+                }, 
                 pattern: {
                     value: passwordRegex,
                     message: 'La contaseña debe tener al menos una minúscula, mayúscula, número y símbolo'
                 }
             })} 
             /> 
-        </label>
+        </Label>
      
-        <Button type="submit"></Button>
-    </form>
+        <Button type="submit">Entrar</Button>
+    </Form>
   )
 }
 
