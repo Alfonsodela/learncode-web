@@ -51,6 +51,8 @@
   - [x] Image
 
 - [] Añadir forms y pantalla de Registro y login (0.57)
+ - [x] Toggle (1.43)
  - [x] Registro
- - [] Login
+ - [] Login (1.54)
+
  - [] Añadir ruta / codes protegida

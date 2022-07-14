@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 
 const errorInput = css`
     border: 2px solid var(--error);
+    margin-bottom: 1.25rem;
 `
 
 
@@ -14,7 +15,7 @@ export const Input = styled.input< {hasError?: boolean}>`
     width: 100%;
     max-widht: var(--input-width);
 
-    ${({ hasError }) => hasError ? errorInput : ''}
+    ${({ hasError }) => (hasError ? errorInput : '')}
 
     &:placeholder {
         color: var(--paragraph);

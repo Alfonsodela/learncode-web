@@ -2,7 +2,7 @@ import { createContext, ReactNode, useState } from "react";
 import ProtectedRoute from "../components/ProtectedRoute";
 import { register, RegisterParams, login, LoginParams } from '../api/auth.api';
 import { User, UserData } from "../types/user.types";
-import { HTTPStatusCodes, ResponsePayload } from "../types/request.type";
+import { ErrorPayload, HTTPStatusCodes, ResponsePayload } from "../types/request.type";
 import { getTokenFromLocalStorage, setTokenToLocalStorage } from "../utils/common";
 
 
@@ -13,7 +13,7 @@ export type AuthContextState = UserData & {
 
 export type AuthContextType = {  
   register: (params: RegisterParams) => Promise<unknown> 
-  login: (params: LoginParams) => Promise<unknown> 
+  login: (params: LoginParams) => Promise<void | ErrorPayload>;
 } & AuthContextState;
 
 const initialState = {
@@ -45,7 +45,7 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const handleLogin = async (params: LoginParams) => {
+  const handleLogin = async (params: LoginParams): Promise<void | ErrorPayload> => {
     const result = await login(params);
 
     if (result.status === HTTPStatusCodes.OK ) {
@@ -59,6 +59,8 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
         token
       }))
     }
+
+    return result as ErrorPayload;
   };
 
 

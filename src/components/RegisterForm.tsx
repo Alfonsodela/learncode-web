@@ -2,15 +2,14 @@ import { useForm } from 'react-hook-form'
 import { Button } from '../ui/Button';
 import { Form, Label } from '../ui/form/Form';
 import { Input } from '../ui/form/Input';
-import { emailValidations, passwordValidations } from '../utils/form';
+import { emailValidations, passwordValidations, usernameValidations } from '../utils/form';
 import { Error } from '../ui/Error';
-import { LoginParams } from '../api/auth.api';
 
 export type Props = {
-    onSubmit: (values: LoginParams) => Promise<void>;
+    onSubmit: () => void;
 }
 
-const LoginForm = ({ onSubmit }: Props) => {
+const RegisterForm = ({ onSubmit }: Props) => {
     const { handleSubmit, register, formState: { errors } } = useForm({
         // dafaultValues: {
         //     email: '',
@@ -22,13 +21,24 @@ const LoginForm = ({ onSubmit }: Props) => {
     <Form onSubmit={handleSubmit(onSubmit)}>
         <Label>
             <Input 
+                hasError={!!errors.username}
+                type="username" 
+                placeholder="Nombre de usuario"
+                {...register('username', usernameValidations)} 
+            /> 
+
+            {errors.username ? <Error>{errors.username.message}</Error> : null}
+        </Label>
+
+        <Label>
+            <Input 
                 hasError={!!errors.email}
                 type="email" 
                 placeholder="email"
                 {...register('email', emailValidations)} 
             /> 
 
-            {errors.email ? <Error>{errors.email.message}</Error> : null}
+            {errors.email ? <Error>{errors.email.message}</Error> : null}   
         </Label>
 
         <Label>
@@ -47,4 +57,4 @@ const LoginForm = ({ onSubmit }: Props) => {
   )
 }
 
-export default LoginForm
+export default RegisterForm
