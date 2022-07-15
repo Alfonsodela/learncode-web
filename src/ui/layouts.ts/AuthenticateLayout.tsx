@@ -16,9 +16,14 @@ export const FormWrapper = styled.div`
 export const ToggleWrapper = styled.div`
   align-items: center;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin: 0 auto;
   margin-bottom: 2.5rem;
   max-width: var(--input-width);
+`;
 
+export const ErrorWrapper = styled.div`
+  width; 100%;
+  text-align: center;
+  margin-bottom: 22.5rem;
 `;

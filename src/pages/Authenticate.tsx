@@ -1,30 +1,47 @@
 // import { register } from "../api/auth.api";
-import {useContext, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import LoginForm from "../components/LoginForm";
 import { AuthContext } from '../context/auth.context';
 import { Image } from '../components/Image';
-import { AuthenticateLayout, FormWrapper, ToggleWrapper } from "../ui/layouts.ts/AuthenticateLayout";
+import { AuthenticateLayout, ErrorWrapper, FormWrapper, ToggleWrapper } from "../ui/layouts.ts/AuthenticateLayout";
 import RegisterForm from "../components/RegisterForm";
 import { Button } from "../ui/Button";
-import { LoginParams } from "../api/auth.api";
+import { LoginParams, RegisterParams } from "../api/auth.api";
 import { Error } from "../ui/Error";
+import { useNavigate } from "react-router-dom";
 
 
 
 const Authenticate = () => {
     const [formVariant, setFormVariant] = useState<'register' | 'login'>('login');
     const [formError, setFormError] = useState<string | null>(null)
-    const { user, token, login } = useContext(AuthContext);
+    const { user, login, register } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+      if (user) {
+        navigate('/styleGuide');
+      }
+    }, [user]);
+      
 
     const handleLogin = async (values: LoginParams) => {
         const errorPayload = await login(values);
 
         if (errorPayload) {
           setFormError(errorPayload.message)
-    };
-
-    
+      };
     }
+
+    const handleRegister = async (values: RegisterParams) => {
+      const errorPayload = await register(values);
+
+      if (errorPayload) {
+        setFormError(errorPayload.message)
+      } else {
+        setFormError('login');
+      }
+  }
 
   return (
     <AuthenticateLayout>
@@ -45,9 +62,13 @@ const Authenticate = () => {
             </Button>
           </ToggleWrapper>
 
-          {formError ? <Error>formError</Error> : null}
+          {formError ? (
+          <ErrorWrapper>
+            <Error>formError</Error> 
+          </ErrorWrapper>
+          ) : null}
 
-          {formVariant === 'register' ? <RegisterForm onSubmit={() => null}></RegisterForm> : <LoginForm onSubmit={handleLogin}></LoginForm>}
+          {formVariant === 'register' ? <RegisterForm onSubmit={handleRegister}></RegisterForm> : <LoginForm onSubmit={handleLogin}></LoginForm>}
         </FormWrapper>
 
         

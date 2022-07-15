@@ -4,17 +4,15 @@ import { Form, Label } from '../ui/form/Form';
 import { Input } from '../ui/form/Input';
 import { emailValidations, passwordValidations, usernameValidations } from '../utils/form';
 import { Error } from '../ui/Error';
+import { RegisterParams } from '../api/auth.api';
 
 export type Props = {
-    onSubmit: () => void;
+    onSubmit: (values: RegisterParams) => Promise<void>;
 }
 
 const RegisterForm = ({ onSubmit }: Props) => {
     const { handleSubmit, register, formState: { errors } } = useForm({
-        // dafaultValues: {
-        //     email: '',
-        //     password: ''
-        // }
+        // dafaultValues: { 
     })
 
   return (

@@ -16,7 +16,7 @@
 - [x] Crear sistema de routing con react-router-dom
 - [x] Crear componente ruta protegida
 - [x] Crear Context
-- [] Autenticarnos con la API
+- [x] Autenticarnos con la API
         - [x] Registro
 
 ----
@@ -33,12 +33,11 @@
 - [-] Config de Husky
   - npm i -D husky lint-staged
 
-- [] Refactor de l registro
+- [] Refactor del registro
  - [x] Crear servicio API (1.32)
  - [x] Crear types
  - [x] Guardar datos del user en Context (1.47)
  - [x] Guardar token en localstorage (1.58)
- - [] Crear función getUserInfo que traiga la información del user logado 
  - [-] Crear hook de autenticación
 
  -----
@@ -49,10 +48,26 @@
   - [x] Input
   - [x] Error
   - [x] Image
+  - [x] AuthenticateLayout
 
 - [] Añadir forms y pantalla de Registro y login (0.57)
  - [x] Toggle (1.43)
  - [x] Registro
- - [] Login (1.54)
+ - [x] Login (1.54)
+ - [x] Añadir redirección a la ruta / styleguide
+ - Perfil Junior use TypeScript y test con componentes y funciones (2.20)
 
- - [] Añadir ruta / codes protegida
+ -------
+
+- [] Refactor Formularios
+  - [] Componentizar los inputs de forma más genérica
+  - [] HOC para que los users logeados no entren en Authenticate
+  - [] Controlar los errores generales del form (diccionario de errores)
+
+- [] Cargar datos de usuario al cargar la aplicación
+- [] Crear las vistas de las rutas protegidas
+- [] Crear componente lista de codes
+  - [] Crear componente Code Snippet
+  - [] Añadir paginación
+
+- [] Crear función getUserInfo que traiga la información del user logado 
