@@ -8,12 +8,15 @@ import { LoginParams } from '../api/auth.api';
 
 export type Props = {
     onSubmit: (values: LoginParams) => Promise<void>;
+    userEmail: string;
 }
 
 const LoginForm = ({ onSubmit }: Props) => {
-    const { handleSubmit, register, formState: { errors } } = useForm({
+    const { handleSubmit, register, formState: { errors } 
+} = useForm({
+
         // dafaultValues: {
-        //     email: '',
+        //     email: userEmail',
         //     password: ''
         // }
     })

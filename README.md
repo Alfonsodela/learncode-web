@@ -64,10 +64,10 @@
   - [] HOC para que los users logeados no entren en Authenticate
   - [] Controlar los errores generales del form (diccionario de errores)
 
-- [] Cargar datos de usuario al cargar la aplicación
-- [] Crear las vistas de las rutas protegidas
+- [x] Propagar el email de registro a login
+- [x] Cargar datos de usuario al cargar la aplicación (0.21)
+- [] Crear las vistas de las rutas protegidas 
 - [] Crear componente lista de codes
-  - [] Crear componente Code Snippet
+  - [] Crear componente Code Snippet (0.48)
   - [] Añadir paginación
 
-- [] Crear función getUserInfo que traiga la información del user logado 

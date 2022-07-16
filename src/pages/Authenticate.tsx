@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const Authenticate = () => {
+    const [userEmail, setUserEmail] = useState('')
     const [formVariant, setFormVariant] = useState<'register' | 'login'>('login');
     const [formError, setFormError] = useState<string | null>(null)
     const { user, login, register } = useContext(AuthContext);
@@ -39,6 +40,7 @@ const Authenticate = () => {
       if (errorPayload) {
         setFormError(errorPayload.message)
       } else {
+        setUserEmail(values.email);
         setFormError('login');
       }
   }
@@ -68,7 +70,9 @@ const Authenticate = () => {
           </ErrorWrapper>
           ) : null}
 
-          {formVariant === 'register' ? <RegisterForm onSubmit={handleRegister}></RegisterForm> : <LoginForm onSubmit={handleLogin}></LoginForm>}
+          {formVariant === 'register' ? (<RegisterForm onSubmit={handleRegister}></RegisterForm>
+          ) : (
+          <LoginForm onSubmit={handleLogin} userEmail={userEmail}></LoginForm>)}
         </FormWrapper>
 
         

@@ -4,6 +4,7 @@ import Authenticate from './pages/Authenticate'
 import StyleGuide from './pages/StyleGuide';
 import { Layout } from './ui/Layout';
 import { Error} from './ui/Error'
+import { Snippets } from './pages/Snippets';
 
 function App () {
   return (
@@ -38,9 +39,9 @@ function App () {
               <Route
                 path="snippets"
                 element={
-                  <ProtectedRoute>
-                    <h1>Snippets</h1>
-                  </ProtectedRoute>
+                  // <ProtectedRoute>
+                  <Snippets/>
+                  // {/* </ProtectedRoute> */}
                 }
               />
               <Route path="styleguide" element={<StyleGuide/>}/>
