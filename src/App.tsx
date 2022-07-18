@@ -1,7 +1,10 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import ProtectedRoute, { AuthContextProvider } from './context/auth.context'
 import Authenticate from './pages/Authenticate'
-import { Layout } from './ui/Layout'
+import StyleGuide from './pages/StyleGuide';
+import { Layout } from './ui/Layout';
+import { Error} from './ui/Error'
+import { Snippets } from './pages/Snippets';
 
 function App () {
   return (
@@ -36,19 +39,19 @@ function App () {
               <Route
                 path="snippets"
                 element={
-                  <ProtectedRoute>
-                    <h1>Snippets</h1>
-                  </ProtectedRoute>
+                  // <ProtectedRoute>
+                  <Snippets/>
+                  // {/* </ProtectedRoute> */}
                 }
               />
-
-              <Route path="*" element={<h1>404</h1>} />
+              <Route path="styleguide" element={<StyleGuide/>}/>
+              <Route path="*" element={<Error size='xl'>404 | No encontrado</Error>} />
             </Routes>
           </Router>
         </AuthContextProvider>
       </Layout>
     </div>
   );
-}
+} 
 
 export default App;

@@ -1,7 +1,7 @@
 import { UserData } from './../types/user.types';
 import { ErrorPayload, ErrorResponse, ResponsePayload } from '../types/request.type';
 import axios, { AxiosError } from "axios"
-import { User } from "types/user.types";
+import { User } from "../types/user.types";
 
 export type LoginParams = {
     email: string;
@@ -45,6 +45,27 @@ export const login = async (params: LoginParams): Promise<ResponsePayload<UserDa
         return {
             status: response.status,
             data: response.data
+        };
+    } catch (error) {
+        const { status, data } = (error as AxiosError).response as ErrorResponse;
+
+        return {
+            status,
+            message: data
+        } as ErrorPayload
+    }
+};
+
+export const getUserData = async (token: string): Promise<ResponsePayload<User> | ErrorPayload> => {
+    try {
+        const response = await authAxios.get<{ data: User }>('user/login', {
+            headers: {
+                Authorizacion: `Bearer ${token}`
+            }
+        });
+        return {
+            status: response.status,
+            data: response.data.data
         };
     } catch (error) {
         const { status, data } = (error as AxiosError).response as ErrorResponse;
