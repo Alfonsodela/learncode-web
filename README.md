@@ -69,5 +69,6 @@
 - [] Crear las vistas de las rutas protegidas 
 - [] Crear componente lista de codes
   - [] Crear componente Code Snippet (0.48)
+  - [] Librería externa 
   - [] Añadir paginación
 

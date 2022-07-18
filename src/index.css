@@ -144,6 +144,7 @@ body {
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 100%;
 }
 
 :root {
@@ -159,6 +160,7 @@ body {
   --padding-xs: 0.5rem;
   --padding-s: 1rem;
   --padding-m: 2rem;
+  --padding-l: 3rem;
   --border-radius: 0.25rem;
   --input-width: 400px;
   --snippet-width: 600px;
@@ -174,10 +176,6 @@ h1,
     }
 
     p,
-    span {
-        color: var(--paragraph);
-        line-height: 100%;
-    }
 
     h1 {
         font-size: 4rem;
@@ -192,7 +190,11 @@ h1,
         font-size: 2rem;
     }
 
-    p,
+    p {
+      color: var(--title);
+      font-size: 1rem;
+    }
+
     span,
     h4,
     button,
