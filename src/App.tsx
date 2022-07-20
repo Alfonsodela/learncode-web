@@ -5,13 +5,13 @@ import StyleGuide from './pages/StyleGuide';
 import { Layout } from './ui/Layout';
 import { Error} from './ui/Error'
 import { Snippets } from './pages/Snippets';
+import SnippetFormPage from './pages/SnippetFormPage';
 
 function App () {
   return (
     <div className="App">
       <Layout>
         <AuthContextProvider>
-          {/* TODO: Insert Header here */}
           <Router>
             <Routes>
               <Route index element={<Authenticate/>} />
@@ -21,7 +21,7 @@ function App () {
                   path="snippet"
                   element={
                     <ProtectedRoute>
-                      <h1>Edit Snippet</h1>
+                      <SnippetFormPage/>
                     </ProtectedRoute>
                   }
                 />
@@ -39,9 +39,7 @@ function App () {
               <Route
                 path="snippets"
                 element={
-                  // <ProtectedRoute>
                   <Snippets/>
-                  // {/* </ProtectedRoute> */}
                 }
               />
               <Route path="styleguide" element={<StyleGuide/>}/>

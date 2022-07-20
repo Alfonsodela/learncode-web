@@ -26,6 +26,7 @@ const LoginForm = ({ onSubmit }: Props) => {
         <Label>
             <Input 
                 hasError={!!errors.email}
+                autoComplete="current-password"
                 type="email" 
                 placeholder="email"
                 {...register('email', emailValidations)} 
@@ -37,6 +38,7 @@ const LoginForm = ({ onSubmit }: Props) => {
         <Label>
             <Input 
                 hasError={!!errors.password}
+                autoComplete="current-password"
                 type="password" 
                 placeholder="Contraseña"
                 {...register('password', passwordValidations)} 

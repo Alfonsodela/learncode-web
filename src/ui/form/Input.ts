@@ -6,18 +6,25 @@ const errorInput = css`
     margin-bottom: 1.25rem;
 `
 
+const sharedCss = css`
+  border-radius: var(--border-radius);
+  border: 2px solid var(--purple);
+  color: var(--dark);
+  max-width: var(--input-width);
+  padding: var(--padding-xs);
+  width: 100%;
+  &:placeholder {
+    color: var(--paragraph);
+  }
+`;
 
-export const Input = styled.input< {hasError?: boolean}>`
-    color: var(--dark);
-    padding: var(--padding-xs);
-    border: 2px solid var (--purple);
-    border-radius: var(--border-radius);
-    width: 100%;
-    max-widht: var(--input-width);
+export const Input = styled.input<{ hasError?: boolean }>`
+  ${sharedCss}
+  ${({ hasError }) => (hasError ? errorInput : '')}
+`;
 
-    ${({ hasError }) => (hasError ? errorInput : '')}
-
-    &:placeholder {
-        color: var(--paragraph);
-    }
-`
+export const TextArea = styled.textarea<{ hasError?: boolean }>`
+  ${sharedCss}
+  font-family: var(--roboto);
+  ${({ hasError }) => (hasError ? errorInput : '')}
+`;

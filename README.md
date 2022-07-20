@@ -59,6 +59,7 @@
 
  -------
 
+
 - [] Refactor Formularios
   - [] Componentizar los inputs de forma más genérica
   - [] HOC para que los users logeados no entren en Authenticate
@@ -66,9 +67,21 @@
 
 - [x] Propagar el email de registro a login
 - [x] Cargar datos de usuario al cargar la aplicación (0.21)
-- [] Crear las vistas de las rutas protegidas 
-- [] Crear componente lista de codes
-  - [] Crear componente Code Snippet (0.48)
-  - [] Librería externa 
+- [x] Crear las vistas de las rutas protegidas 
+- [x] Crear componente lista de codes (0.48)
+  - [x] Crear componente Code Snippet 
+
+----
+
+- [] Snippets
+  - [] Formulario para crear snippets (0.06)
+  - [] Filtro por lenguaje (1.00)
+  - [] Snippet Context (1.08)
+  - [] Conectarse con la API para traer snippets
   - [] Añadir paginación
+
+  
+  - [] Cargar los tags desde la API
+
+  
 
