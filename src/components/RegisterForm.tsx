@@ -13,6 +13,10 @@ export type Props = {
 const RegisterForm = ({ onSubmit }: Props) => {
     const { handleSubmit, register, formState: { errors } } = useForm({
         // dafaultValues: { 
+        //     username: '',
+        //     emoji: '',
+        //     email: '',
+        //     password: ''
     })
 
   return (

@@ -7,11 +7,15 @@ export type Props = {
   language: string;
 }
 
-const CodeBlock = ({ code, language }: Props) => {
+export const SUPPORTED_LANGUAGES = [''];
+
+const defaultCode = `console.log('Hola MiniCoders')`;
+
+const CodeBlock = ({ code, language = 'javascript' }: Props) => {
     return (
       <Code>
-        <SyntaxHighlighter language={language || 'javascript'} style={tomorrow}>
-          {code}
+        <SyntaxHighlighter language={language} style={tomorrow}>
+          {code || defaultCode}
         </SyntaxHighlighter>
       </Code>
     );
